@@ -1,10 +1,9 @@
 FROM centos:latest
 MAINTAINER vilas.chavan80@gmail.com
-RUN yum -y --setopt=tsflags=nodocs update && \
-    yum -y --setopt=tsflags=nodocs install httpd && \
-    yum clean all
-RUN yum -y install zip && \
-unzip
+RUN yum -y update && \
+    yum -y install httpd && \
+    zip && \
+    unzip
 
 COPY index.html /var/www/html/
 
